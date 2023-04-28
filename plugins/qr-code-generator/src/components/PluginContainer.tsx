@@ -1,12 +1,12 @@
 import {useState, createRef, useCallback} from 'react'
 import {Container, Flex, ThemeColorProvider} from '@sanity/ui'
-import Input from './Input/Input'
-import QRCodePreview from './QRCodePreview/QRCodePreview'
-import ButtonsRow from './ButtonsRow/ButtonsRow'
+import Input from './Input'
+import QRCodePreview from './QRCodePreview'
+import ButtonsRow from './ButtonsRow'
 import {saveAs} from 'file-saver'
 
 const PluginContainer = () => {
-  const [url, setUrl] = useState('')
+  const [url, setUrl] = useState('https://www.halo-lab.com/')
   const inputRef = createRef()
 
   const generateCode = useCallback(() => {

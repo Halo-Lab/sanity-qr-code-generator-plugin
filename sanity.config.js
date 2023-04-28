@@ -2,7 +2,7 @@ import {defineConfig} from 'sanity'
 import {deskTool} from 'sanity/desk'
 import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemas'
-import {QrCodeGenerator} from 'sanity-plugin-qr-code-generator-test'
+import {QrCodeGenerator} from './plugins/qr-code-generator/src'
 
 export default defineConfig({
   name: 'default',

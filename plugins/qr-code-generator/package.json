@@ -71,7 +71,6 @@
     "react-is": "^18.2.0",
     "rimraf": "^5.0.0",
     "sanity": "^3.9.1",
-    "styled-components": "^5.3.10",
     "typescript": "^5.0.4"
   },
   "peerDependencies": {
