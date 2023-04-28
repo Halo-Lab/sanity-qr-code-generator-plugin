@@ -1,4 +1,4 @@
-import {forwardRef, useState, Ref} from 'react'
+import React, {forwardRef, useState, Ref} from 'react'
 import {Flex, Text} from '@sanity/ui'
 
 const SizeInput = forwardRef((props, ref) => {

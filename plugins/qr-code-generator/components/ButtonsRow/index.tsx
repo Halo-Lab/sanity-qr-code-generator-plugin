@@ -1,6 +1,6 @@
+import React, {memo} from 'react'
 import {Button, Flex} from '@sanity/ui'
 import {GenerateIcon, DownloadIcon} from '@sanity/icons'
-import {memo} from 'react'
 
 const ButtonsRow = memo(function ButtonsRow({
   generateCode,

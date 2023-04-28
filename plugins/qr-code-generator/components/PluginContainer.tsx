@@ -19,7 +19,6 @@ const PluginContainer = () => {
     if (inputValue) {
       setUrl(inputValue)
       setSize(size)
-      console.log(size)
     }
   }, [textInputRef])
 
