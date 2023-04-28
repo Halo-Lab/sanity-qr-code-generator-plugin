@@ -20,17 +20,17 @@ const PluginContainer = () => {
       setUrl(inputValue)
       setSize(size)
     }
-  }, [textInputRef])
+  }, [])
 
   const downloadImage = useCallback(() => {
     const imageSrc: string | null = (
       document.getElementById('qr-code-image')?.childNodes[0] as HTMLImageElement
     ).getAttribute('src')
-
     if (imageSrc) {
-      saveAs(imageSrc, 'qr-code.jpg')
+      const imageName = `${url}-qrcode.jpg`
+      saveAs(imageSrc, imageName)
     }
-  }, [])
+  }, [url])
 
   return (
     <ThemeColorProvider>
