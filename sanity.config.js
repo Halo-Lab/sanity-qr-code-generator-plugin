@@ -4,15 +4,12 @@ import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemas'
 import {QrCodeGenerator} from './plugins/qr-code-generator/'
 
-export const projectId = import.meta.env.SANITY_STUDIO_PROJECT_ID
-export const dataset = import.meta.env.SANITY_STUDIO_DATASET
-
 export default defineConfig({
   name: 'default',
   title: 'sanity-qr-code-generator-plugin',
 
-  projectId: projectId,
-  dataset: dataset,
+  projectId: process.env.SANITY_STUDIO_PROJECT_ID,
+  dataset: process.env.SANITY_STUDIO_DATASET,
 
   plugins: [deskTool(), visionTool(), QrCodeGenerator()],
 
