@@ -6,7 +6,7 @@ import ButtonsRow from './ButtonsRow'
 import {saveAs} from 'file-saver'
 
 const PluginContainer = () => {
-  const [url, setUrl] = useState('https://www.halo-lab.com/')
+  const [url, setUrl] = useState('')
   const inputRef = createRef()
 
   const generateCode = useCallback(() => {
