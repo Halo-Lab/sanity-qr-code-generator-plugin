@@ -1,9 +1,30 @@
-# Sanity Clean Content Studio
+# Sanity QR Code Generator Plugin
 
-Congratulations, you have now installed the Sanity Content Studio, an open source real-time content editing environment connected to the Sanity backend.
+## Usage
 
-Now you can do the following things:
+>  You can use this plugin only with local import at this moment . To use this plugin, add it as a plugin in your `sanity.config.ts` (or .js) file, as shown in the example below:
 
-- [Read “getting started” in the docs](https://www.sanity.io/docs/introduction/getting-started?utm_source=readme)
-- [Join the community Slack](https://slack.sanity.io/?utm_source=readme)
-- [Extend and build plugins](https://www.sanity.io/docs/content-studio/extending?utm_source=readme)
+```sh
+import {defineConfig} from 'sanity'
+import {QrCodeGenerator} from './plugins/qr-code-generator/'
+
+export default defineConfig({
+  //..
+  plugins: [.., .., QrCodeGenerator()],
+
+})
+
+```
+### Now you can feel free to use plugin and generate QR Codes.
+
+## Word from author
+
+Have fun ✌️
+
+<a href="https://www.halo-lab.com/?utm_source=github">
+  <img
+    src="https://dgestran.sirv.com/Images/supported-by-halolab.png"
+    alt="Supported by Halo lab"
+    height="60"
+  >
+</a>
