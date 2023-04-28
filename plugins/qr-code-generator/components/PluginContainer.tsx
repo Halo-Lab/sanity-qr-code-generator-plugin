@@ -4,18 +4,24 @@ import Input from './TextInput'
 import QRCodePreview from './QRCodePreview'
 import ButtonsRow from './ButtonsRow'
 import {saveAs} from 'file-saver'
+import SizeInput from './SizeInput'
 
 const PluginContainer = () => {
   const [url, setUrl] = useState('https://www.halo-lab.com/')
-  const inputRef = createRef()
+  const [size, setSize] = useState(300)
+  const textInputRef = createRef()
+  const sizeInputRef = createRef()
 
   const generateCode = useCallback(() => {
-    const inputValue = (inputRef.current as HTMLInputElement)?.value
+    const inputValue = (textInputRef.current as HTMLInputElement)?.value
+    const size = +(sizeInputRef.current as HTMLInputElement)?.value
 
     if (inputValue) {
       setUrl(inputValue)
+      setSize(size)
+      console.log(size)
     }
-  }, [inputRef])
+  }, [textInputRef])
 
   const downloadImage = useCallback(() => {
     const imageSrc: string | null = (
@@ -30,9 +36,12 @@ const PluginContainer = () => {
   return (
     <ThemeColorProvider>
       <Container width={[0, 0, 1]} paddingX={3} paddingTop={5}>
-        <Input ref={inputRef} />
+        <Flex direction={'column'} gap={3}>
+          <Input ref={textInputRef} />
+          <SizeInput ref={sizeInputRef} />
+        </Flex>
         <Flex direction={'column'} align={'center'} gap={5} marginTop={4}>
-          <QRCodePreview url={url} />
+          <QRCodePreview url={url} size={size} />
           <ButtonsRow generateCode={generateCode} downloadImage={downloadImage} />
         </Flex>
       </Container>
