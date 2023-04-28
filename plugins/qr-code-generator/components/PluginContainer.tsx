@@ -1,6 +1,6 @@
-import {useState, createRef, useCallback} from 'react'
+import React, {useState, createRef, useCallback} from 'react'
 import {Container, Flex, ThemeColorProvider} from '@sanity/ui'
-import Input from './Input'
+import Input from './TextInput'
 import QRCodePreview from './QRCodePreview'
 import ButtonsRow from './ButtonsRow'
 import {saveAs} from 'file-saver'
