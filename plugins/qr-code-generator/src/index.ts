@@ -1,26 +1,24 @@
-import {definePlugin} from 'sanity'
+import { definePlugin } from 'sanity';
+import { CodeBlockIcon } from '@sanity/icons';
+import { route } from 'sanity/router';
+import PluginContainer from './components/PluginContainer';
 
 interface MyPluginConfig {
   /* nothing here yet */
 }
 
-/**
- * Usage in `sanity.config.ts` (or .js)
- *
- * ```ts
- * import {defineConfig} from 'sanity'
- * import {myPlugin} from 'sanity-plugin-qr-code-generator'
- *
- * export default defineConfig({
- *   // ...
- *   plugins: [myPlugin()],
- * })
- * ```
- */
-export const myPlugin = definePlugin<MyPluginConfig | void>((config = {}) => {
-  // eslint-disable-next-line no-console
-  console.log('hello from sanity-plugin-qr-code-generator')
+export const QrCodeGenerator = definePlugin<MyPluginConfig | void>((options) => {
   return {
     name: 'sanity-plugin-qr-code-generator',
+    tools: [
+      {
+        name: 'qr-code-generator',
+        title: 'QR Code Generator',
+        icon: CodeBlockIcon,
+        component: PluginContainer,
+        route: route.create('/*'),
+        options,
+      },
+    ],
   }
 })
