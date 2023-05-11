@@ -1,4 +1,4 @@
-import React, {useState, createRef, useCallback} from 'react'
+import {useState, createRef, useCallback} from 'react'
 import {Container, Flex, ThemeColorProvider} from '@sanity/ui'
 import Input from './TextInput'
 import QRCodePreview from './QRCodePreview'

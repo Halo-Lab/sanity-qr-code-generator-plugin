@@ -1,4 +1,4 @@
-import React, {memo} from 'react'
+import {memo} from 'react'
 import {Button, Flex} from '@sanity/ui'
 import {GenerateIcon, DownloadIcon} from '@sanity/icons'
 

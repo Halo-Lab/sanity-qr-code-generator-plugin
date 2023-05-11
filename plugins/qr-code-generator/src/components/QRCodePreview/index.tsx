@@ -1,4 +1,4 @@
-import React, {useRef} from 'react'
+import {useRef} from 'react'
 import {useQRCode} from 'next-qrcode'
 
 const QRCodePreview = ({url, size}: {url: string; size?: number}) => {
