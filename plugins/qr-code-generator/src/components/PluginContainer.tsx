@@ -23,12 +23,15 @@ const PluginContainer = () => {
   }, [size, url])
 
   const downloadImage = useCallback(() => {
-    const QRimage: any = document.getElementById('qr-code-image')?.childNodes[0] as HTMLImageElement
-    console.log(QRimage)
-    // if (imageSrc) {
-    //   const imageName = `${url}-qrcode.jpg`
-    //   imageSrc.toBlob((blob: Blob) => saveAs(blob, imageName))
-    // }
+    const qrCodeImage: HTMLElement | null = document.getElementById('qr-code-image')
+
+    if (qrCodeImage) {
+      const imageName = `${url}-qrcode.svg`
+      const blob: Blob = new Blob([qrCodeImage.innerHTML], {
+        type: 'image/svg+xml',
+      })
+      saveAs(blob, imageName)
+    }
   }, [url])
 
   return (
