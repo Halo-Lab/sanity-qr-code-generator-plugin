@@ -16,8 +16,8 @@ const SizeInput = forwardRef((props, ref) => {
         ref={ref as Ref<HTMLInputElement>}
         value={inputValue}
         onChange={(e) => inputChangeHandler(e)}
-        min={50}
-        max={500}
+        min={100}
+        max={1000}
         step={50}
       ></input>
     </Flex>

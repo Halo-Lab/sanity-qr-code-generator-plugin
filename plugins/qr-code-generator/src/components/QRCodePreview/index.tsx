@@ -1,5 +1,6 @@
 import {useRef} from 'react'
 import {useQRCode} from 'next-qrcode'
+import {styled} from 'styled-components'
 
 const QRCodePreview = ({url, size}: {url: string; size?: number}) => {
   const {Image} = useQRCode()
@@ -17,20 +18,25 @@ const QRCodePreview = ({url, size}: {url: string; size?: number}) => {
     },
   }
 
+  const ImageWrapper = styled.div`
+    width: ${defaultOptions.width}px;
+    height: ${defaultOptions.width}px;
+    max-width: 500px;
+    max-height: 500px;
+
+    > img {
+      object-fit: contain;
+      width: 100%;
+    }
+  `
+
   return (
-    <div
-      id="qr-code-image"
-      style={{
-        width: defaultOptions.width + 'px',
-        height: defaultOptions.width + 'px',
-      }}
-      ref={imageRef}
-    >
+    <ImageWrapper id="qr-code-image" ref={imageRef}>
       <Image
         text={`${url ? url : 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'}`}
         options={defaultOptions}
       />
-    </div>
+    </ImageWrapper>
   )
 }
 
