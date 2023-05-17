@@ -8,7 +8,6 @@ interface MyPluginConfig {
 }
 
 export const QrCodeGenerator = definePlugin<MyPluginConfig | void>((options) => {
-  console.log('plugin started')
   return {
     name: 'sanity-plugin-qr-code-generator',
     tools: [
