@@ -20,7 +20,7 @@ const PluginContainer = () => {
       setUrl(inputValue)
       setSize(size)
     }
-  }, [])
+  }, [size, url])
 
   const downloadImage = useCallback(() => {
     const imageSrc: string | null = (
@@ -33,18 +33,16 @@ const PluginContainer = () => {
   }, [url])
 
   return (
-    <ThemeColorProvider>
-      <Container width={[0, 0, 1]} paddingX={3} paddingTop={5}>
-        <Flex direction={'column'} gap={3}>
-          <Input ref={textInputRef} />
-          <SizeInput ref={sizeInputRef} />
-        </Flex>
-        <Flex direction={'column'} align={'center'} gap={5} marginTop={4}>
-          <QRCodePreview url={url} size={size} />
-          <ButtonsRow generateCode={generateCode} downloadImage={downloadImage} />
-        </Flex>
-      </Container>
-    </ThemeColorProvider>
+    <Container width={[0, 0, 1]} paddingX={3} paddingTop={5}>
+      <Flex direction={'column'} gap={3}>
+        <Input ref={textInputRef} />
+        <SizeInput ref={sizeInputRef} />
+      </Flex>
+      <Flex direction={'column'} align={'center'} gap={5} marginTop={4}>
+        <QRCodePreview url={url} size={size} />
+        <ButtonsRow generateCode={generateCode} downloadImage={downloadImage} />
+      </Flex>
+    </Container>
   )
 }
 
