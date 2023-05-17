@@ -1,5 +1,5 @@
 import {useState, createRef, useCallback} from 'react'
-import {Container, Flex, ThemeColorProvider} from '@sanity/ui'
+import {Container, Flex} from '@sanity/ui'
 import Input from './TextInput'
 import QRCodePreview from './QRCodePreview'
 import ButtonsRow from './ButtonsRow'
@@ -23,13 +23,12 @@ const PluginContainer = () => {
   }, [size, url])
 
   const downloadImage = useCallback(() => {
-    const imageSrc: string | null = (
-      document.getElementById('qr-code-image')?.childNodes[0] as HTMLImageElement
-    ).getAttribute('src')
-    if (imageSrc) {
-      const imageName = `${url}-qrcode.jpg`
-      saveAs(imageSrc, imageName)
-    }
+    const QRimage: any = document.getElementById('qr-code-image')?.childNodes[0] as HTMLImageElement
+    console.log(QRimage)
+    // if (imageSrc) {
+    //   const imageName = `${url}-qrcode.jpg`
+    //   imageSrc.toBlob((blob: Blob) => saveAs(blob, imageName))
+    // }
   }, [url])
 
   return (

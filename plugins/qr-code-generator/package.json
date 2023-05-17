@@ -1,6 +1,6 @@
 {
-  "name": "sanity-plugin-qr-code-generator",
-  "version": "1.0.0",
+  "name": "223300-qr",
+  "version": "1.0.2",
   "description": "",
   "keywords": [
     "sanity",
@@ -48,7 +48,7 @@
   "dependencies": {
     "@sanity/incompatible-plugin": "^1.0.4",
     "file-saver": "^2.0.5",
-    "next-qrcode": "^2.4.1"
+    "react-qr-code": "^2.0.11"
   },
   "devDependencies": {
     "@sanity/pkg-utils": "^2.2.14",
@@ -76,5 +76,10 @@
   },
   "engines": {
     "node": ">=14"
+  },
+  "sanityPlugin": {
+    "verifyPackage": {
+      "packageName": false
+    }
   }
 }

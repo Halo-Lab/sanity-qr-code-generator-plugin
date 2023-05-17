@@ -3,8 +3,9 @@ import {deskTool} from 'sanity/desk'
 import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemas'
 // import {QrCodeGenerator} from './plugins/previous-version/'
-import {pageSpeedMonitoringPlugin} from 'sanity-plugin-page-speed-monitoring-test'
+// import {pageSpeedMonitoringPlugin} from 'sanity-plugin-page-speed-monitoring-test'
 import {QrCodeGenerator} from './plugins/qr-code-generator/src'
+// import {QrCodeGenerator} from '223300-qr'
 
 const API_KEY = process.env.PAGE_SPEED_INSIGHTS_API_KEY
 
@@ -19,7 +20,7 @@ export default defineConfig({
     deskTool(),
     visionTool(),
     QrCodeGenerator(),
-    pageSpeedMonitoringPlugin({API_KEY: API_KEY}),
+    // pageSpeedMonitoringPlugin({API_KEY: API_KEY}),
     // myPlugin(),
   ],
 
