@@ -1,35 +1,41 @@
-# sanity-plugin-qr-code-generator
+# Sanity QR Code Generator Plugin (for Sanity Studio v3)
 
-> This is a **Sanity Studio v3** plugin.
+## Instalation
 
-## Installation
+> To install this plugin, use the following command:
 
 ```sh
-npm install sanity-plugin-qr-code-generator
+npm install sanity-qr-code-generator
 ```
 
 ## Usage
 
-Add it as a plugin in `sanity.config.ts` (or .js):
+> To use this plugin, add it as a plugin in your `sanity.config.ts` (or .js) file, as shown in the example below:
 
-```ts
+```sh
 import {defineConfig} from 'sanity'
-import {myPlugin} from 'sanity-plugin-qr-code-generator'
+import {QrCodeGenerator} from 'sanity-qr-code-generator'
 
 export default defineConfig({
-  //...
-  plugins: [myPlugin({})],
+  //..
+  plugins: [.., .., QrCodeGenerator()],
+
 })
+
 ```
 
-## License
+After adding the plugin, you can access it by opening the "QR Code Generator" tab in the Sanity Studio. From there, you can enter the URL of and generate QR Code.
 
-[MIT](LICENSE) © Ihor Bozhuk
+### Now you can feel free to use plugin and generate QR Codes.
 
-## Develop & test
+## Word from author
 
-This plugin uses [@sanity/plugin-kit](https://github.com/sanity-io/plugin-kit)
-with default configuration for build & watch scripts.
+Have fun ✌️
 
-See [Testing a plugin in Sanity Studio](https://github.com/sanity-io/plugin-kit#testing-a-plugin-in-sanity-studio)
-on how to run this plugin with hotreload in the studio.
+<a href="https://www.halo-lab.com/?utm_source=github">
+  <img
+    src="https://dgestran.sirv.com/Images/supported-by-halolab.png"
+    alt="Supported by Halo lab"
+    height="60"
+  >
+</a>

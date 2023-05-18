@@ -17,7 +17,7 @@
   ],
   "dependencies": {
     "@sanity/vision": "^3.9.0",
-    "223300-qr": "file:.yalc/223300-qr",
+    "223300-qr": "^1.0.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-is": "^18.2.0",

@@ -1,12 +1,20 @@
-# Sanity QR Code Generator Plugin
+# Sanity QR Code Generator Plugin (for Sanity Studio v3)
+
+## Instalation
+
+> To install this plugin, use the following command:
+
+```sh
+npm install sanity-qr-code-generator
+```
 
 ## Usage
 
->  You can use this plugin only with local import at this moment . To use this plugin, add it as a plugin in your `sanity.config.ts` (or .js) file, as shown in the example below:
+> To use this plugin, add it as a plugin in your `sanity.config.ts` (or .js) file, as shown in the example below:
 
 ```sh
 import {defineConfig} from 'sanity'
-import {QrCodeGenerator} from './plugins/qr-code-generator/'
+import {QrCodeGenerator} from 'sanity-qr-code-generator'
 
 export default defineConfig({
   //..
@@ -15,6 +23,9 @@ export default defineConfig({
 })
 
 ```
+
+After adding the plugin, you can access it by opening the "QR Code Generator" tab in the Sanity Studio. From there, you can enter the URL of and generate QR Code.
+
 ### Now you can feel free to use plugin and generate QR Codes.
 
 ## Word from author
