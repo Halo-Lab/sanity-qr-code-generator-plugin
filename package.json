@@ -16,15 +16,12 @@
     "sanity"
   ],
   "dependencies": {
-    "223300-qr": "file:.yalc/223300-qr",
     "@sanity/vision": "^3.9.0",
-    "file-saver": "^2.0.5",
-    "next-qrcode": "^2.4.1",
+    "223300-qr": "file:.yalc/223300-qr",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-is": "^18.2.0",
     "sanity": "^3.9.0",
-    "sanity-plugin-page-speed-monitoring-test": "^1.0.5",
     "styled-components": "^5.3.9"
   },
   "devDependencies": {
