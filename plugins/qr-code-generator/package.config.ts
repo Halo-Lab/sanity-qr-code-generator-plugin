@@ -4,6 +4,7 @@ export default defineConfig({
   legacyExports: true,
   dist: 'dist',
   tsconfig: 'tsconfig.dist.json',
+  external: ["styled-components", "@sanity/ui"],
 
   // Remove this block to enable strict export validation
   extract: {

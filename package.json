@@ -16,8 +16,8 @@
     "sanity"
   ],
   "dependencies": {
+    "223300-qr": "file:.yalc/223300-qr",
     "@sanity/vision": "^3.9.0",
-    "223300-qr": "^1.0.0",
     "file-saver": "^2.0.5",
     "next-qrcode": "^2.4.1",
     "react": "^18.2.0",
