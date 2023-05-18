@@ -5,6 +5,7 @@ import QRCodePreview from './QRCodePreview'
 import ButtonsRow from './ButtonsRow'
 import {saveAs} from 'file-saver'
 import SizeInput from './SizeInput'
+import SVGToImage from '../../helpers/SVGToImage'
 
 const PluginContainer = () => {
   const [url, setUrl] = useState('https://www.halo-lab.com/')
@@ -23,14 +24,25 @@ const PluginContainer = () => {
   }, [size, url])
 
   const downloadImage = useCallback(() => {
-    const qrCodeImage: HTMLElement | null = document.getElementById('qr-code-image')
+    const SVGImage: string | undefined = document.getElementById('qr-code-image')?.innerHTML
 
-    if (qrCodeImage) {
-      const imageName = `${url}-qrcode.svg`
-      const blob: Blob = new Blob([qrCodeImage.innerHTML], {
-        type: 'image/svg+xml',
+    if (SVGImage) {
+      const imageName = `${url}-qrcode.jpeg`
+      // TODO add image type selection before download
+      // const blob: Blob = new Blob([qrCodeImage.innerHTML], {
+      //   type: 'image/svg+xml',
+      // })
+      // saveAs(blob, imageName)
+      SVGToImage({
+        svg: SVGImage,
+        mimetype: 'image/jpeg',
+        quality: 1,
+        width: size,
+        height: size,
+        outputFormat: 'base64',
       })
-      saveAs(blob, imageName)
+        .then((data: Blob) => saveAs(data, imageName))
+        .catch((err: Error) => console.log(err))
     }
   }, [url])
 
