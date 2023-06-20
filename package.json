@@ -17,11 +17,11 @@
   ],
   "dependencies": {
     "@sanity/vision": "^3.9.0",
-    "223300-qr": "^1.0.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-is": "^18.2.0",
     "sanity": "^3.9.0",
+    "sanity-qr-code-generator": "file:.yalc/sanity-qr-code-generator",
     "styled-components": "^5.3.9"
   },
   "devDependencies": {
