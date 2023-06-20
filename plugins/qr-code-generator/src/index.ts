@@ -1,24 +1,13 @@
 import { definePlugin } from 'sanity';
-import { CodeBlockIcon } from '@sanity/icons';
-import { route } from 'sanity/router';
-import PluginContainer from './components/PluginContainer';
+import { qrCodeGenerator } from './schemas/qrCodeGenerator';
 
 interface MyPluginConfig {
   /* nothing here yet */
 }
 
-export const QrCodeGenerator = definePlugin<MyPluginConfig | void>((options) => {
+export const QrCodeGenerator = definePlugin<MyPluginConfig | void>(() => {
   return {
     name: 'sanity-plugin-qr-code-generator',
-    tools: [
-      {
-        name: 'qr-code-generator',
-        title: 'QR Code Generator',
-        icon: CodeBlockIcon,
-        component: PluginContainer,
-        route: route.create('/*'),
-        options,
-      },
-    ],
+    schema: { types: [qrCodeGenerator] }
   }
 })
