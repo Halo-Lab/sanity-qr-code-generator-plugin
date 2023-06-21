@@ -1,16 +1,15 @@
 import {useState, createRef} from 'react'
-import {Container, Flex, useToast} from '@sanity/ui'
-import {useClient, useSchema} from 'sanity'
+import {Container, Flex} from '@sanity/ui'
+import {useClient, AssetFromSource, AssetSourceComponentProps} from 'sanity'
 import Input from './TextInput'
 import QRCodePreview from './QRCodePreview'
 import ButtonsRow from './ButtonsRow'
 
-const PluginContainer = () => {
+const PluginContainer = ({onSelect}: AssetSourceComponentProps) => {
   const [url, setUrl] = useState('https://www.youtube.com/watch?v=dQw4w9WgXcQ')
   const textInputRef = createRef()
   const client = useClient({apiVersion: '2023-01-01'})
 
-  const SVGImage = document.getElementById('qr-code-image')?.innerHTML as string
   const size = 300
 
   const generateCode = () => {
@@ -19,25 +18,44 @@ const PluginContainer = () => {
       setUrl(inputValue)
     }
   }
-  
+
   const createBlobFromSVG = (svgString: string): Blob => {
     const svgBlob = new Blob([svgString], {type: 'image/svg+xml'})
     return svgBlob
   }
 
-  const uploadImage = (svgString: string, fileName: string) => {
-    client.assets
+  const uploadImage = (svgString: string, fileName: string): Promise<string> => {
+    return client.assets
       .upload('image', createBlobFromSVG(svgString), {
         contentType: 'image/svg',
         filename: fileName,
       })
       .then((result: {url: string}) => {
-        console.log(result.url)
         return result.url
       })
-      .catch((error) => {
-        console.error(error.message)
-      })
+  }
+
+  const setImageToField = () => {
+    const SVGImage = document.getElementById('qr-code-image')?.innerHTML as string
+
+    return uploadImage(SVGImage, url).then((downloadUrl) => {
+      const description = `qr-code-to-${url}`
+      const asset: AssetFromSource = {
+        kind: 'url',
+        value: downloadUrl,
+        assetDocumentProps: {
+          _type: 'sanity.imageAsset',
+          source: {
+            name: 'qr code',
+            id: Math.random() * 1000,
+            // url: photo.links.html,
+          },
+          description,
+          // creditLine: `${photo.user.name} by Unsplash`,
+        } as any,
+      }
+      onSelect([asset])
+    })
   }
 
   return (
@@ -50,7 +68,7 @@ const PluginContainer = () => {
           <QRCodePreview url={url} size={size} />
         </Flex>
       )}
-      <ButtonsRow generateCode={generateCode} uploadImage={() => uploadImage(SVGImage, url)} />
+      <ButtonsRow generateCode={generateCode} uploadImage={setImageToField} />
     </Container>
   )
 }

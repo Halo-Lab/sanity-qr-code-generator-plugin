@@ -6,12 +6,12 @@ export default {
   type: 'document',
   fields: [
     defineField({
-      title: 'Generate your QR code',
-      name: 'qrCodeGenerator',
-      type: 'qrCodeGenerator',
+      title: 'Test 232',
+      name: 'test',
+      type: 'string',
     }),
     defineField({
-      title: 'QR Code',
+      title: 'Generate your QR code',
       name: 'qrCode',
       type: 'image',
     }),

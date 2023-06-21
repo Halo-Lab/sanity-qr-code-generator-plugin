@@ -10,7 +10,7 @@ const ButtonsRow = memo(function ButtonsRow({
   uploadImage: any
 }) {
   return (
-    <Flex align={'center'} justify={'center'} gap={5} marginTop={2}>
+    <Flex align={'center'} justify={'center'} gap={5} marginTop={3}>
       <Button
         icon={GenerateIcon}
         text="Generate QR"
@@ -21,7 +21,7 @@ const ButtonsRow = memo(function ButtonsRow({
       />
       <Button
         icon={DownloadIcon}
-        text="Download"
+        text="Upload"
         tone="primary"
         fontSize={3}
         padding={4}
