@@ -4,13 +4,13 @@ import {GenerateIcon, DownloadIcon} from '@sanity/icons'
 
 const ButtonsRow = memo(function ButtonsRow({
   generateCode,
-  downloadImage,
+  uploadImage,
 }: {
   generateCode: () => void
-  downloadImage: () => void
+  uploadImage: any
 }) {
   return (
-    <Flex align={'center'} gap={5}>
+    <Flex align={'center'} justify={'center'} gap={5} marginTop={2}>
       <Button
         icon={GenerateIcon}
         text="Generate QR"
@@ -25,7 +25,7 @@ const ButtonsRow = memo(function ButtonsRow({
         tone="primary"
         fontSize={3}
         padding={4}
-        onClick={downloadImage}
+        onClick={uploadImage}
         style={{cursor: 'pointer'}}
       />
     </Flex>

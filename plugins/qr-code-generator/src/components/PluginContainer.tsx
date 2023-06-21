@@ -1,61 +1,56 @@
-import {useState, createRef, useCallback} from 'react'
-import {Container, Flex} from '@sanity/ui'
+import {useState, createRef} from 'react'
+import {Container, Flex, useToast} from '@sanity/ui'
+import {useClient, useSchema} from 'sanity'
 import Input from './TextInput'
 import QRCodePreview from './QRCodePreview'
 import ButtonsRow from './ButtonsRow'
-import {saveAs} from 'file-saver'
-import SizeInput from './SizeInput'
-import SVGToImage from '../../helpers/SVGToImage'
 
 const PluginContainer = () => {
-  const [url, setUrl] = useState('https://www.halo-lab.com/')
-  const [size, setSize] = useState(300)
+  const [url, setUrl] = useState('https://www.youtube.com/watch?v=dQw4w9WgXcQ')
   const textInputRef = createRef()
-  const sizeInputRef = createRef()
+  const client = useClient({apiVersion: '2023-01-01'})
 
-  const generateCode = useCallback(() => {
+  const SVGImage = document.getElementById('qr-code-image')?.innerHTML as string
+  const size = 300
+
+  const generateCode = () => {
     const inputValue = (textInputRef.current as HTMLInputElement)?.value
-    const size = +(sizeInputRef.current as HTMLInputElement)?.value
-
     if (inputValue) {
       setUrl(inputValue)
-      setSize(size)
     }
-  }, [size, url])
+  }
+  
+  const createBlobFromSVG = (svgString: string): Blob => {
+    const svgBlob = new Blob([svgString], {type: 'image/svg+xml'})
+    return svgBlob
+  }
 
-  const downloadImage = useCallback(() => {
-    const SVGImage: string | undefined = document.getElementById('qr-code-image')?.innerHTML
-
-    if (SVGImage) {
-      const imageName = `${url}-qrcode.jpeg`
-      // TODO add image type selection before download
-      // const blob: Blob = new Blob([qrCodeImage.innerHTML], {
-      //   type: 'image/svg+xml',
-      // })
-      // saveAs(blob, imageName)
-      SVGToImage({
-        svg: SVGImage,
-        mimetype: 'image/jpeg',
-        quality: 1,
-        width: size,
-        height: size,
-        outputFormat: 'base64',
+  const uploadImage = (svgString: string, fileName: string) => {
+    client.assets
+      .upload('image', createBlobFromSVG(svgString), {
+        contentType: 'image/svg',
+        filename: fileName,
       })
-        .then((data: Blob) => saveAs(data, imageName))
-        .catch((err: Error) => console.log(err))
-    }
-  }, [url])
+      .then((result: {url: string}) => {
+        console.log(result.url)
+        return result.url
+      })
+      .catch((error) => {
+        console.error(error.message)
+      })
+  }
 
   return (
-    <Container width={[0, 0, 1]} paddingX={3} paddingTop={5}>
-      <Flex direction={'column'} gap={3}>
+    <Container>
+      <Flex gap={3} justify={'space-between'} align={'center'}>
         <Input ref={textInputRef} />
-        <SizeInput ref={sizeInputRef} />
       </Flex>
-      <Flex direction={'column'} align={'center'} gap={5} marginTop={4}>
-        <QRCodePreview url={url} size={size} />
-        <ButtonsRow generateCode={generateCode} downloadImage={downloadImage} />
-      </Flex>
+      {url && (
+        <Flex direction={'column'} align={'center'} gap={5} marginTop={4}>
+          <QRCodePreview url={url} size={size} />
+        </Flex>
+      )}
+      <ButtonsRow generateCode={generateCode} uploadImage={() => uploadImage(SVGImage, url)} />
     </Container>
   )
 }

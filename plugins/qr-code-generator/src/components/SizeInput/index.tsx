@@ -2,10 +2,11 @@ import {forwardRef, useState, Ref, FormEvent} from 'react'
 import {Flex, Text} from '@sanity/ui'
 
 const SizeInput = forwardRef((props, ref) => {
-  const [inputValue, setInputValue] = useState(250)
+  const [inputValue, setInputValue] = useState(300)
 
   const inputChangeHandler = (e: FormEvent<HTMLInputElement>) =>
     setInputValue(Number((e.target as HTMLInputElement).value))
+
   return (
     <Flex direction={'column'} gap={3}>
       <Text align={'center'} size={2} weight="bold">

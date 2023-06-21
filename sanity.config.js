@@ -12,15 +12,6 @@ export default defineConfig({
   dataset: process.env.SANITY_STUDIO_DATASET,
 
   plugins: [deskTool(), QrCodeGenerator()],
-  form: {
-    image: {
-      assetSources: (previousAssetSources, {schema}) => {
-        console.log(schema)
-        return previousAssetSources
-      },
-      qrCode: {},
-    },
-  },
 
   schema: {
     types: schemaTypes,

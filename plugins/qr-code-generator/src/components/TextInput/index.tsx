@@ -1,4 +1,4 @@
-import {Flex, TextInput, Text} from '@sanity/ui'
+import {TextInput, Container} from '@sanity/ui'
 import {useState, FormEvent, forwardRef, Ref} from 'react'
 
 const Input = forwardRef((props, ref) => {
@@ -8,8 +8,7 @@ const Input = forwardRef((props, ref) => {
     setInputValue(e.currentTarget.value)
 
   return (
-    <Flex direction={'column'} gap={4}>
-      <Text size={3}>Your URL</Text>
+    <Container width={100}>
       <TextInput
         type="text"
         placeholder="Write or paste URL"
@@ -18,7 +17,7 @@ const Input = forwardRef((props, ref) => {
         value={inputValue}
         onChange={(e) => inputChangeHandler(e)}
       />
-    </Flex>
+    </Container>
   )
 })
 
