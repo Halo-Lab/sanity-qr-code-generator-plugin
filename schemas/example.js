@@ -13,7 +13,12 @@ export default {
     defineField({
       title: 'Generate your QR code',
       name: 'qrCode',
-      type: 'image',
+      type: 'qrCode',
+    }),
+    defineField({
+      title: 'Test 2',
+      name: 'test2',
+      type: 'string',
     }),
   ],
 }
