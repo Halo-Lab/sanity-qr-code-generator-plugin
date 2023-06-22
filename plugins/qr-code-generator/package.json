@@ -47,7 +47,6 @@
   },
   "dependencies": {
     "@sanity/incompatible-plugin": "^1.0.4",
-    "file-saver": "^2.0.5",
     "react-qr-code": "^2.0.11"
   },
   "devDependencies": {
