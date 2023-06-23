@@ -4,10 +4,11 @@ export default {
   title: 'My Example Document Type',
   name: 'exampleDocumentType',
   type: 'document',
+  id: 'test-id',
   fields: [
     defineField({
-      title: 'Test 232',
-      name: 'test',
+      title: 'Title',
+      name: 'title',
       type: 'string',
     }),
     defineField({
@@ -16,8 +17,13 @@ export default {
       type: 'qrCode',
     }),
     defineField({
-      title: 'Test 2',
-      name: 'test2',
+      title: 'testImage',
+      name: 'testImage',
+      type: 'image',
+    }),
+    defineField({
+      title: 'Subtitle',
+      name: 'subtitle',
       type: 'string',
     }),
   ],

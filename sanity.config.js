@@ -2,7 +2,7 @@ import {defineConfig} from 'sanity'
 import {deskTool} from 'sanity/desk'
 import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemas'
-import {QrCodeGenerator, pluginAssetSource} from 'sanity-qr-code-generator'
+import {QrCodeGenerator} from 'sanity-qr-code-generator'
 
 export default defineConfig({
   name: 'default',
@@ -16,16 +16,4 @@ export default defineConfig({
   schema: {
     types: schemaTypes,
   },
-  // form: {
-  //   image: {
-  //     assetSources: (previousAssetSources, {schema}) => {
-  //       console.log(schema.name, 'schema')
-  //       if (schema.name === 'movie-image') {
-  //         // remove unsplash from movie-image types
-  //         return previousAssetSources.filter((assetSource) => assetSource !== pluginAssetSource)
-  //       }
-  //       return previousAssetSources
-  //     },
-  //   },
-  // },
 })

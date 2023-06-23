@@ -1,12 +1,11 @@
-import { defineType, defineField } from 'sanity'
+import { defineField, defineType } from 'sanity'
+import PluginContainer from '../components/PluginContainer'
 
-export const qrCodeGenerator = defineType({
-    title: 'QR Code',
+export const qrCodeType = defineType({
     name: 'qrCode',
-    type: 'qrCode',
-    // fields: [defineField({
-    //     name: "qrCodeImage",
-    //     type: "image",
-    //     title: "qrCodeImage",
-    // })]
+    title: 'QR Code generator',
+    type: 'image',
+    components: {
+        input: PluginContainer,
+    },
 })
