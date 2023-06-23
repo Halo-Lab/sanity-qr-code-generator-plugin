@@ -1,6 +1,5 @@
 import { AssetSource, definePlugin } from 'sanity'
-import { qrCodeGenerator } from './schemas/qrCodeGenerator';
-import PluginContainer from './components/PluginContainer';
+import QrCodeGenerator from './components/QrCodeGenerator';
 import { RocketIcon } from '@sanity/icons'
 
 interface MyPluginConfig {
@@ -9,23 +8,19 @@ interface MyPluginConfig {
 export const pluginAssetSource: AssetSource = {
   name: 'qrCodeGenerator',
   title: 'QR code generator',
-  component: PluginContainer,
+  component: QrCodeGenerator,
   icon: RocketIcon,
 }
 
-export const QrCodeGenerator = definePlugin<MyPluginConfig | void>(() => {
+export const QrCodeGeneratorPlugin = definePlugin<MyPluginConfig | void>(() => {
   return {
     name: 'sanity-plugin-qr-code-generator',
-    // schema: { types: [qrCodeGenerator] },
     form: {
       image: {
         assetSources: (prev) => {
           return [...prev, pluginAssetSource]
         },
       },
-      // qrCode: {
-      //   assetSources: (prev: any) => [...prev, pluginAssetSource]
-      // }
     }
   }
 })

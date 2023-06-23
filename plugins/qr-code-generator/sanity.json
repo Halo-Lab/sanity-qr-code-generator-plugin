@@ -1,5 +1,5 @@
 {
-  "name": "qrCodeGenerator",
+  "name": "QrCodeGenerator",
   "parts": [
     {
       "implements": "part:@sanity/base/sanity-root",

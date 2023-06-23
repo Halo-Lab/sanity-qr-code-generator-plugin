@@ -6,7 +6,7 @@ import Input from './TextInput'
 import QRCodePreview from './QRCodePreview'
 import SVGToImage from '../../helpers/SVGToImage'
 
-const PluginContainer = ({onSelect}: AssetSourceComponentProps) => {
+const QrCodeGenerator = ({onSelect}: AssetSourceComponentProps) => {
   const [url, setUrl] = useState('')
   const textInputRef = createRef()
 
@@ -63,4 +63,4 @@ const PluginContainer = ({onSelect}: AssetSourceComponentProps) => {
   )
 }
 
-export default PluginContainer
+export default QrCodeGenerator

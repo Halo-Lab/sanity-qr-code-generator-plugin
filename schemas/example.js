@@ -1,22 +1,22 @@
 import {defineField} from 'sanity'
 
 export default {
-  title: 'My Example Document Type',
+  title: 'QR Codes',
   name: 'exampleDocumentType',
   type: 'document',
   fields: [
     defineField({
-      title: 'Test 232',
+      title: 'title',
       name: 'test',
       type: 'string',
     }),
     defineField({
       title: 'Generate your QR code',
       name: 'qrCode',
-      type: 'qrCode',
+      type: 'image',
     }),
     defineField({
-      title: 'Test 2',
+      title: 'subtitle',
       name: 'test2',
       type: 'string',
     }),
