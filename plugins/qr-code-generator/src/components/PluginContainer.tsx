@@ -21,6 +21,7 @@ const PluginContainer = (props: ImageInputProps) => {
   const textInputRef = createRef()
   const client = useClient({apiVersion: '2021-06-07'})
   const documentId = useFormValue(['_id'])
+  const fieldName = props.elementProps.id
   const toast = useToast()
 
   const size = 500
@@ -38,7 +39,7 @@ const PluginContainer = (props: ImageInputProps) => {
           return client
             .patch(documentId as string)
             .set({
-              qrCode: {
+              [fieldName]: {
                 _type: 'image',
                 asset: {
                   _type: 'reference',
