@@ -16,5 +16,20 @@ export default {
         hotspot: true,
       },
     },
+    // {
+    //   title: 'Generate your QR code',
+    //   name: 'qrCode',
+    //   type: 'qrCode',
+    // },
+    // {
+    //   title: 'Generate your QR code',
+    //   name: 'qrCode1',
+    //   type: 'qrCode',
+    // },
+    // {
+    //   title: 'Generate your QR code',
+    //   name: 'qrCode2',
+    //   type: 'qrCode',
+    // },
   ],
 }

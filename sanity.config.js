@@ -2,7 +2,8 @@ import {defineConfig} from 'sanity'
 import {deskTool} from 'sanity/desk'
 import {visionTool} from '@sanity/vision'
 import {schemaTypes} from './schemas'
-import {QrCodeGeneratorPlugin} from 'sanity-qr-code-generator'
+import {QrCodeGenerator} from 'sanity-qr-code-generator'
+import {simplerColorInput} from 'sanity-plugin-simpler-color-input'
 
 export default defineConfig({
   name: 'default',
@@ -11,7 +12,7 @@ export default defineConfig({
   projectId: process.env.SANITY_STUDIO_PROJECT_ID,
   dataset: process.env.SANITY_STUDIO_DATASET,
 
-  plugins: [deskTool(), visionTool(), QrCodeGeneratorPlugin()],
+  plugins: [deskTool(), visionTool(), QrCodeGenerator(), simplerColorInput()],
 
   schema: {
     types: schemaTypes,

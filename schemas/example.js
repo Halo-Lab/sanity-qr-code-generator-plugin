@@ -6,8 +6,8 @@ export default {
   type: 'document',
   fields: [
     defineField({
-      title: 'title',
-      name: 'test',
+      title: 'Title',
+      name: 'title',
       type: 'string',
     }),
     defineField({
@@ -16,8 +16,8 @@ export default {
       type: 'image',
     }),
     defineField({
-      title: 'subtitle',
-      name: 'test2',
+      title: 'Subtitle',
+      name: 'subtitle',
       type: 'string',
     }),
   ],
