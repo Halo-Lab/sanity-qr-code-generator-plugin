@@ -1,20 +1,9 @@
 import {useState, createRef, useEffect} from 'react'
 import {Button, Container, Flex, useToast} from '@sanity/ui'
 import {GenerateIcon} from '@sanity/icons'
-import {
-  AssetFromSource,
-  ImageInputProps,
-  useClient,
-  set,
-  unset,
-  useFormValue,
-  FormField,
-  ImageInput,
-} from 'sanity'
+import {ImageInputProps, useClient, useFormValue, FormField, ImageInput} from 'sanity'
 import Input from './TextInput'
 import QRCodePreview from './QRCodePreview'
-import SVGToImage from '../../helpers/SVGToImage'
-import {error} from 'console'
 
 const PluginContainer = (props: ImageInputProps) => {
   const [url, setUrl] = useState('')
@@ -27,14 +16,11 @@ const PluginContainer = (props: ImageInputProps) => {
   const size = 500
 
   useEffect(() => {
-    console.log(documentId, 'documentId')
-
     if (url !== '') {
       const SVGImage = document.getElementById('qr-code-image')?.outerHTML as string
       client.assets
         .upload('image', createSvgBlob(SVGImage), {filename: `qr-code-to-${url}`})
         .then((imageAsset) => {
-          console.log(imageAsset, 'imageAsset')
 
           return client
             .patch(documentId as string)
