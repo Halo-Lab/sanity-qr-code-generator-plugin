@@ -4,7 +4,6 @@ export default {
   title: 'My Example Document Type',
   name: 'exampleDocumentType',
   type: 'document',
-  id: 'test-id',
   fields: [
     defineField({
       title: 'Title',

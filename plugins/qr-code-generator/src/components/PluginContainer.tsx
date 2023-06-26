@@ -21,7 +21,6 @@ const PluginContainer = (props: ImageInputProps) => {
       client.assets
         .upload('image', createSvgBlob(SVGImage), {filename: `qr-code-to-${url}`})
         .then((imageAsset) => {
-
           return client
             .patch(documentId as string)
             .set({
