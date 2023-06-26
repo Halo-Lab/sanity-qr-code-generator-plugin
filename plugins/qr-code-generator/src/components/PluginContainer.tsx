@@ -1,7 +1,7 @@
 import {useState, createRef, useEffect} from 'react'
 import {Button, Container, Flex} from '@sanity/ui'
 import {GenerateIcon} from '@sanity/icons'
-import {AssetFromSource, ImageInputProps, useClient, set, unset} from 'sanity'
+import {AssetFromSource, ImageInputProps, useClient, set, unset, useFormValue} from 'sanity'
 import Input from './TextInput'
 import QRCodePreview from './QRCodePreview'
 import SVGToImage from '../../helpers/SVGToImage'
@@ -10,27 +10,16 @@ const PluginContainer = ({schemaType, onChange}: ImageInputProps) => {
   const [url, setUrl] = useState('')
   const textInputRef = createRef()
   const client = useClient({apiVersion: '2021-06-07'})
-  const [currentDocumentId, setCurrentDocumentId] = useState('')
-
-  useEffect(() => {
-    console.log(client)
-    // const fetchDocumentId = async () => {
-    //   const id = await client.then()
-    //   // setCurrentDocumentId(id)
-    // }
-
-    // fetchDocumentId()
-  }, [])
+  const documentId = useFormValue(['_id'])
 
   const size = 500
 
   useEffect(() => {
-    console.log(currentDocumentId, 'documentId')
     // const documentID = client.getDocument('qrCode').then((document) => console.log(document))
-    // // console.log(documentID)
+    console.log(documentId, 'documentId')
     if (url !== '') {
       const SVGImage = document.getElementById('qr-code-image')?.outerHTML as string
-
+      // if (documentId) {
       client.assets
         .upload('image', createSvgBlob(SVGImage), {filename: `qr-code-to-${url}`})
         .then((imageAsset) => {
@@ -42,7 +31,7 @@ const PluginContainer = ({schemaType, onChange}: ImageInputProps) => {
           //   },
           // ])
           return client
-            .patch('test-id')
+            .patch(documentId as string)
             .set({
               qrCode: {
                 _type: 'image',
@@ -57,6 +46,7 @@ const PluginContainer = ({schemaType, onChange}: ImageInputProps) => {
         .then(() => {
           console.log('Done')
         })
+      // }
 
       // SVGToImage({svg: SVGImage}).then((res: string) => {
       //   const description = `qr-code-to-${url}`

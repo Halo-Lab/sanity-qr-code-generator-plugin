@@ -16,5 +16,10 @@ export default {
         hotspot: true,
       },
     },
+    {
+      name: 'backgroundColor',
+      title: 'Background color',
+      type: 'simplerColor',
+    },
   ],
 }

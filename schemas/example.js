@@ -17,11 +17,6 @@ export default {
       type: 'qrCode',
     }),
     defineField({
-      title: 'testImage',
-      name: 'testImage',
-      type: 'image',
-    }),
-    defineField({
       title: 'Subtitle',
       name: 'subtitle',
       type: 'string',
