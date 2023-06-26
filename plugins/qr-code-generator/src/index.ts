@@ -5,7 +5,7 @@ interface MyPluginConfig {
   /* nothing here yet */
 }
 
-export const QrCodeGeneratorPlugin = definePlugin<MyPluginConfig | void>(() => {
+export const QrCodeGenerator = definePlugin<MyPluginConfig | void>(() => {
   return {
     name: 'sanity-plugin-qr-code-generator',
     schema: { types: [qrCodeType] }

@@ -5,7 +5,7 @@ import {ImageInputProps, useClient, useFormValue, FormField, ImageInput} from 's
 import Input from './TextInput'
 import QRCodePreview from './QRCodePreview'
 
-const PluginContainer = (props: ImageInputProps) => {
+const QrCodeGenerator = (props: ImageInputProps) => {
   const [url, setUrl] = useState('')
   const textInputRef = createRef()
   const client = useClient({apiVersion: '2021-06-07'})
@@ -18,6 +18,7 @@ const PluginContainer = (props: ImageInputProps) => {
   useEffect(() => {
     if (url !== '') {
       const SVGImage = document.getElementById('qr-code-image')?.outerHTML as string
+      
       client.assets
         .upload('image', createSvgBlob(SVGImage), {filename: `qr-code-to-${url}`})
         .then((imageAsset) => {

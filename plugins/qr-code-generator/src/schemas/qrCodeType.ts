@@ -1,9 +1,9 @@
 import { ImageComponents, defineType } from 'sanity'
-import PluginContainer from '../components/PluginContainer'
+import QrCodeGenerator from '../components/QrCodeGenerator'
 
 export const qrCodeType = defineType({
     name: 'qrCode',
     title: 'QR Code generator',
     type: 'image',
-    components: { input: PluginContainer as ImageComponents['input'] },
+    components: { input: QrCodeGenerator as ImageComponents['input'] },
 })
