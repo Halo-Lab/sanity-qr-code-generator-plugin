@@ -18,33 +18,10 @@ const QrCodeGenerator = (props: ImageInputProps) => {
   useEffect(() => {
     if (url !== '') {
       const SVGImage = document.getElementById('qr-code-image')?.outerHTML as string
-      
-      client.assets
-        .upload('image', createSvgBlob(SVGImage), {filename: `qr-code-to-${url}`})
-        .then((imageAsset) => {
-          return client
-            .patch(documentId as string)
-            .set({
-              [fieldName]: {
-                _type: 'image',
-                asset: {
-                  _type: 'reference',
-                  _ref: imageAsset._id,
-                },
-              },
-            })
-            .commit()
-        })
-        .then(() => {
-          toast.push({
-            status: 'success',
-            title: 'QR code succesfully added to your assets',
-          })
-        })
-        .catch((error) => {
-          console.error(error)
-          toast.push({status: 'error', title: 'Oooops, something went wrong'})
-        })
+
+      setImageField(SVGImage, url)
+        .then(() => pushToast('success'))
+        .catch(() => pushToast('error'))
     }
   }, [url])
 
@@ -52,6 +29,32 @@ const QrCodeGenerator = (props: ImageInputProps) => {
     const svgData = new Blob([svgString], {type: 'image/svg+xml'})
     return svgData
   }
+
+  const setImageField = (image: string, url: string): Promise<any> =>
+    client.assets
+      .upload('image', createSvgBlob(image), {filename: `qr-code-to-${url}`})
+      .then((imageAsset) => {
+        return client
+          .patch(documentId as string)
+          .set({
+            [fieldName]: {
+              _type: 'image',
+              asset: {
+                _type: 'reference',
+                _ref: imageAsset._id,
+              },
+            },
+          })
+          .commit()
+      })
+
+  const pushToast = (toastType: string) =>
+    toastType === 'success'
+      ? toast.push({
+          status: 'success',
+          title: 'QR code succesfully added to your assets',
+        })
+      : toast.push({status: 'error', title: 'Oooops, something went wrong'})
 
   const generateCode = () => {
     const inputValue = (textInputRef.current as HTMLInputElement)?.value
