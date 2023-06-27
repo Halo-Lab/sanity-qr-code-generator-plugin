@@ -6,7 +6,7 @@ import {QrCodeGenerator} from 'sanity-qr-code-generator'
 
 export default defineConfig({
   name: 'default',
-  title: 'sanity-qr-code-generator-plugin',
+  title: 'sanity-plugin',
 
   projectId: process.env.SANITY_STUDIO_PROJECT_ID,
   dataset: process.env.SANITY_STUDIO_DATASET,

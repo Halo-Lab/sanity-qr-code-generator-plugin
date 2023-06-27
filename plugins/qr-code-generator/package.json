@@ -78,7 +78,8 @@
   },
   "sanityPlugin": {
     "verifyPackage": {
-      "packageName": false
+      "packageName": false,
+      "sanityV2Json": false
     }
   }
 }

@@ -24,9 +24,27 @@ export default defineConfig({
 
 ```
 
-After adding the plugin, you can access it by opening the "QR Code Generator" tab in the Sanity Studio. From there, you can enter the URL of and generate QR Code.
+Then you can use 'qrCode' as custom type in your schemas.
 
-### Now you can feel free to use plugin and generate QR Codes.
+```sh
+    defineField({
+      title: 'Generate your QR code',
+      name: 'qrCode',
+      type: 'qrCode',
+    })
+```
+
+## Example
+
+<img width="900" alt="QR generator plugin in use" src="https://github.com/Halo-Lab/sanity-qr-code-generator-plugin/assets/usage-example.jpg">
+
+## Develop & test
+
+This plugin uses [@sanity/plugin-kit](https://github.com/sanity-io/plugin-kit)
+with default configuration for build & watch scripts.
+
+See [Testing a plugin in Sanity Studio](https://github.com/sanity-io/plugin-kit#testing-a-plugin-in-sanity-studio)
+on how to run this plugin with hotreload in the studio.
 
 ## Word from author
 
