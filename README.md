@@ -36,7 +36,7 @@ Then you can use 'qrCode' as custom type in your schemas.
 
 ## Example
 
-<img width="900" alt="QR generator plugin in use" src="https://github.com/Halo-Lab/sanity-qr-code-generator-plugin/assets/usage-example.jpg">
+<img width="900" alt="QR generator plugin in use" src="https://raw.githubusercontent.com/Halo-Lab/sanity-qr-code-generator-plugin/main/assets/usage-example.jpg">
 
 ## Develop & test
 
