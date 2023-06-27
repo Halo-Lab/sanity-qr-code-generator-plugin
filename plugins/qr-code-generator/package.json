@@ -1,10 +1,12 @@
 {
   "name": "sanity-qr-code-generator",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "keywords": [
     "sanity",
-    "sanity-plugin"
+    "sanity-plugin",
+    "qr-code",
+    "react-qr"
   ],
   "homepage": "https://github.com/Halo-Lab/sanity-qr-code-generator-plugin#readme",
   "bugs": {
